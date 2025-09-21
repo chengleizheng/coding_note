@@ -1,1 +1,63 @@
+```cpp
+#include<iostream>
+#include<algorithm>
+#include<cmath>
+#include<vector>
 
+using namespace std;
+
+int a[30];
+int n,k;
+int k_sum = 0;
+
+bool is_prime(int n){
+    //判断是否是质数的函数
+    if(n<=1||(n%2==0&&n!=2)){
+        return false;
+    }
+    else if(n==2){
+        return true;
+    }
+    for(int i=3;i<=sqrt(n);i+=2){
+        if(n%i==0){
+            return false;
+        }
+    }
+    return true;
+}
+
+void dfs(int sum,int num,int t){
+    /*其中，sum表示目前的总和，num表示总共有的数字数量，
+    准备与k作比较。t表示目前所有数字的最大下标的下一位*/
+    //这里的t默认是从0开始计数
+    if(num == k){
+        if(is_prime(sum)){
+            k_sum++;
+            return;
+        }
+        else{
+            return;
+        }
+    }
+    else if(num < k){
+        for(int i=t;i<=n-(k-num);i++){
+            int temp_num = a[i];
+            dfs(sum+temp_num,num+1,i+1);
+        }
+    }
+}
+
+int main(){
+    cin>>n>>k;
+    for(int i=0;i<n;i++){
+        cin>>a[i];
+    }
+    dfs(0,0,0);
+    if(k==0){
+        printf("0\n");
+    }
+    else{
+        cout<<k_sum<<endl;
+    }
+}
+```
