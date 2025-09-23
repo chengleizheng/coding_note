@@ -61,4 +61,22 @@
 	bool computed[21][21][21];
 	memset(computed, false, sizeof(computed));  // 全部设为false
 	 ```
++ 回溯法
 
+	**算法模版**
+
+	```c
+	void backtrack(参数) {
+	    if (终止条件) {
+	        收集结果;
+	        return;
+	    }
+	    
+	    for (所有选择) {
+	        if (剪枝条件) continue;
+	        做选择;
+	        backtrack(新状态);
+	        撤销选择;  // 关键
+	    }
+	}
+	```
