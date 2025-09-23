@@ -1,3 +1,7 @@
+//注意看一些规范化的命名方式
+//特别是if (computed[a][b][c]) line25之后对代码的简化
+//学习相关的命名习惯
+
 #include<iostream>
 #include<cstring>
 using namespace std;
