@@ -30,7 +30,7 @@
 
 	**2.重要特性**
 
-	**只能**安全地设置 0 和 -1：对于 int、long 等多字节类型;
+	**只能**安全地设置 0 和 -1：对于 int、long 等多字节类型
 	可以设置任意值：对于 char、bool 等单字节类型
 
 	**3.常见使用场景**
@@ -61,6 +61,7 @@
 	bool computed[21][21][21];
 	memset(computed, false, sizeof(computed));  // 全部设为false
 	 ```
+
 + 回溯法
 
 	**算法模版**
@@ -80,3 +81,53 @@
 	    }
 	}
 	```
+
++ 递归和递推
+
+	**以斐波那契数列求解对比**
+
+	```c
+	// 记忆化递归（递归+缓存）
+	int memo[100];
+	bool computed[100] = {false};
+	int fibonacci_memo(int n) {
+	    cout << "计算 F(" << n << ")";
+	    if (computed[n]) {
+	        cout << " (已缓存)" << endl;
+	        return memo[n];
+	    }
+	    cout << endl;
+	    
+	    if (n <= 1) {
+	        memo[n] = n;
+	        computed[n] = true;
+	        return n;
+	    }
+	    
+	    memo[n] = fibonacci_memo(n-1) + fibonacci_memo(n-2);
+	    computed[n] = true;
+	    return memo[n];
+	}
+	
+	// 递推方法（动态规划）
+	int fibonacci_iterative(int n) {
+	    if (n <= 1) return n;
+	    
+	    vector<int> dp(n+1);
+	    dp[0] = 0;
+	    dp[1] = 1;
+	    
+	    cout << "递推过程：" << endl;
+	    cout << "F(0) = " << dp[0] << endl;
+	    cout << "F(1) = " << dp[1] << endl;
+	    
+	    for (int i = 2; i <= n; i++) {
+	        dp[i] = dp[i-1] + dp[i-2];
+	        cout << "F(" << i << ") = F(" << (i-1) << ") + F(" << (i-2) << ") = " << dp[i] << endl;
+	    }
+	    
+	    return dp[n];
+	}
+	```
+
+	
