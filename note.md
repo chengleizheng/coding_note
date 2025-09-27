@@ -131,5 +131,23 @@
 	```
  + **vscode异常**
 	Exception has occurred. **Arithmetic exception**-算数异常，通常是分母为零
-
+ + fib数列记忆优化
+   ```c
+	long long ans[30000010];
+   long long fib(long long n){
+    if(n==0){
+        return 0;
+    }
+    if(n==1){
+        return 1;
+    }
+    if(ans[n]!=-1){
+        return ans[n];
+    }
+    else{
+        ans[n] = fib(n-1)+fib(n-2);
+        return ans[n];
+    }
+	}
+	```
 	
