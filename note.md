@@ -129,5 +129,7 @@
 	    return dp[n];
 	}
 	```
+ + **vscode异常**
+	Exception has occurred. **Arithmetic exception**-算数异常，通常是分母为零
 
 	
