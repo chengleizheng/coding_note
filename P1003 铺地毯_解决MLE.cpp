@@ -38,6 +38,7 @@ int main(){
 }
     */
 //以上是喜提MLE的错误解法
+//不能开这么大的数组bool is_done[11001][11001] = {false};int memo[11001][11001] = {0};
 
 #include<iostream>
 #include<algorithm>
