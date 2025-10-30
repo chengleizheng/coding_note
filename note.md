@@ -157,3 +157,23 @@
   const int MAXN = 10010;
   int a[MAXN],b[MAXN],g[MAXN],k[MAXN];
   ```
++ **字符串分割**
+
+```cpp
+//若是要在读入的时候读到某个特定字符之前进行分割
+#include<string>
+int main(){
+  string str;
+  getline(cin,str,'#');
+  // 最多读取99个字符（留1个给'\0'），遇到'#'停止
+}
+//ps:若是char str[]类型，格式会略有不同
+int main() {
+    char str[100];  // 字符数组，用于存储结果
+    // 最多读取99个字符（留1个给'\0'），遇到'#'停止
+    cin.getline(str, 100, '#');
+    cout << "读取结果：" << str << endl;
+    return 0;
+}
+```
+
